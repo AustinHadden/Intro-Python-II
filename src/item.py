@@ -1,14 +1,13 @@
+from print_wrapper import print_wrapper
+
+
 class Item:
     def __init__(self, name, description):
         self.name = name
         self.description = description
 
+    def on_take(self):
+        print_wrapper(f"You have picked up {self.name}")
 
-class Food(Item):
-    def __init__(self, name, description, calories):
-        super().__init__(name, description)
-        self.calories = calories
-
-class Egg(Food):
-    def __init__(self):
-        super().__init__("egg", "This is an egg", 50)
+    def on_drop(self):
+        print_wrapper(f"You have dropped the {self.name}")
